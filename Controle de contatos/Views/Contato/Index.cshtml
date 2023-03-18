@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Listagem de contatos";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Listagem de contatos</h1>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-outline-success" role="button" asp-controller="Contato" asp-action="Criar">Criar novo contato</a>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Celular</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto@teste.com</td>
+                <td>11 55787-8788</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                        <a role="button" class="btn btn-outline-primary" asp-controller="Contato" asp-action="Editar">Editar</a>
+                        <a role="button" class="btn btn-outline-danger" asp-controller="Contato" asp-action="ApagarConfirmacao">Excluir</a>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton@teste.com</td>
+                <td>11 55787-8788</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                        <a role="button" class="btn btn-outline-primary"asp-controller="Contato" asp-action="Editar">Editar</a>
+                        <a role="button" class="btn btn-outline-danger" asp-controller="Contato" asp-action="ApagarConfirmacao">Excluir</a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
