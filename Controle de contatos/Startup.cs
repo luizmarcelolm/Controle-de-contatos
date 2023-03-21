@@ -1,4 +1,5 @@
 ﻿using Controle_de_contatos.Data;
+using Controle_de_contatos.Repositorio;
 using Microsoft.EntityFrameworkCore;
 
 namespace Controle_de_contatos
@@ -14,9 +15,9 @@ namespace Controle_de_contatos
 
         public void ConfigurationServices(IServiceCollection services)
         {
-
             services.AddControllersWithViews();
             services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DataBase")));
+            services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
         }
 
         public void Configure(WebApplication app, IWebHostEnvironment environment)
