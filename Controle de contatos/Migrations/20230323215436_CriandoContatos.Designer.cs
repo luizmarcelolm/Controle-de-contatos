@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Controle_de_contatos.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    [Migration("20230318005557_CriandoTabelaContatos")]
-    partial class CriandoTabelaContatos
+    [Migration("20230323215436_CriandoContatos")]
+    partial class CriandoContatos
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,8 +32,9 @@ namespace Controle_de_contatos.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Celular")
-                        .HasColumnType("int");
+                    b.Property<string>("Celular")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()

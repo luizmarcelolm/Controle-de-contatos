@@ -5,7 +5,7 @@
 namespace Controle_de_contatos.Migrations
 {
     /// <inheritdoc />
-    public partial class CriandoTabelaContatos : Migration
+    public partial class CriandoContatos : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +18,7 @@ namespace Controle_de_contatos.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Celular = table.Column<int>(type: "int", nullable: false)
+                    Celular = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
