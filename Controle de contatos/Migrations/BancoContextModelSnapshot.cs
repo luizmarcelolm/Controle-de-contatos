@@ -29,7 +29,7 @@ namespace Controle_de_contatos.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Celular")
+                    b.Property<string>("Celular")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
