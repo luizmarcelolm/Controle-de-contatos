@@ -1,6 +1,6 @@
 ﻿@model List<ContatoModel>
 @{
-    ViewData["Title"] = "Listagem de contatos";
+    ViewData["Title"] = "Lista de contatos";
 }
 
 <div class="text-center">
@@ -20,15 +20,15 @@
             @TempData["MensagemErro"]
     </div>
     }
-    <br />
+    
 
-    <h1 class="display-4">Listagem de contatos</h1>
+    <h1 class="display-4">Lista de contatos</h1>
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <a class="btn btn-outline-success" role="button" asp-controller="Contato" asp-action="Criar">Criar novo contato</a>
+        <a class="btn btn-outline-success" role="button" asp-controller="Contato" asp-action="Criar">Cadastrar novo contato</a>
     </div>
-
-    <table class="table">
+    <div><br /</div>
+    <table class="table" id="table-contatos">
         <thead>
             <tr>
                 <th scope="col">#</th>
