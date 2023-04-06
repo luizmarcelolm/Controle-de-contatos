@@ -12,6 +12,7 @@ namespace Controle_de_contatos.Repositorio
         }
 
         public UsuarioModel ListarPorId(int id) => _context.Usuarios.FirstOrDefault(x => x.Id == id);
+
         public List<UsuarioModel> BuscarTodos()
         {
             return _context.Usuarios.ToList();
@@ -28,7 +29,7 @@ namespace Controle_de_contatos.Repositorio
         {
            UsuarioModel usuarioDB = ListarPorId(usuario.Id);
 
-            if (usuarioDB == null) throw new System.Exception("houve um erro na atualização do usuário");
+            if (usuarioDB == null) throw new System.Exception("Houve um erro na atualização do usuário");
             usuarioDB.Name = usuario.Name;
             usuarioDB.Email = usuario.Email;
             usuarioDB.Login = usuario.Login;
@@ -42,9 +43,9 @@ namespace Controle_de_contatos.Repositorio
 
         public bool Apagar(int id)
         {
-            ContatoModel usuarioDB = ListarPorId(id);
+            UsuarioModel usuarioDB = ListarPorId(id);
 
-            if (usuarioDB == null) throw new System.Exception("houve um erro na exclusão do usuário");
+            if (usuarioDB == null) throw new System.Exception("Houve um erro na exclusão do usuário");
             _context.Usuarios.Remove(usuarioDB);
             _context.SaveChanges();
             return true;

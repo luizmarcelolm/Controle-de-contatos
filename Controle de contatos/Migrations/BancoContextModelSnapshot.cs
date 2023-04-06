@@ -49,8 +49,11 @@ namespace Controle_de_contatos.Migrations
 
             modelBuilder.Entity("Controle_de_contatos.Models.UsuarioModel", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime?>("DataAtualizacao")
                         .HasColumnType("datetime2");

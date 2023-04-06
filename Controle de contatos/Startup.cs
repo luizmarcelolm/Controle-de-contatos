@@ -17,8 +17,8 @@ namespace Controle_de_contatos
         {
             services.AddControllersWithViews();
             services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DataBase")));
-            services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
             services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+            services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
         }
 
         public void Configure(WebApplication app, IWebHostEnvironment environment)
