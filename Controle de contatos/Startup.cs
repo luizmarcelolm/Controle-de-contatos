@@ -1,4 +1,5 @@
 ﻿using Controle_de_contatos.Data;
+using Controle_de_contatos.Helper;
 using Controle_de_contatos.Repositorio;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,8 +18,16 @@ namespace Controle_de_contatos
         {
             services.AddControllersWithViews();
             services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DataBase")));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();  
             services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
             services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
+            services.AddScoped<ISessao, Sessao>();
+
+            services.AddSession(o  =>
+            {
+                o.Cookie.HttpOnly = true;
+                o.Cookie.IsEssential = true;
+            });
         }
 
         public void Configure(WebApplication app, IWebHostEnvironment environment)
@@ -34,9 +43,11 @@ namespace Controle_de_contatos
 
             app.UseAuthorization();
 
+            app.UseSession();
+
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Login}/{action=Index}/{id?}");
         }
     }
 }
