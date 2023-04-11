@@ -19,8 +19,14 @@ namespace Controle_de_contatos.Controllers
 
         public IActionResult Index()
         {
-            
+            if(_sessao.BuscarSessaoDoUsuario() !=null) return RedirectToAction("Index", "Home");
             return View();
+        }
+
+        public IActionResult Sair()
+        {
+            _sessao.RemoverSessaoDoUsuario();
+            return RedirectToAction("Index", "Login");
         }
 
         [HttpPost]
